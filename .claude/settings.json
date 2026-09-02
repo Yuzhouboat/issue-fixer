@@ -1,0 +1,13 @@
+{
+  "extraKnownMarketplaces": {
+    "issue-fixer": {
+      "source": {
+        "source": "directory",
+        "path": "."
+      }
+    }
+  },
+  "enabledPlugins": {
+    "issue-fixer@issue-fixer": true
+  }
+}
