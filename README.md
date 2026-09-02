@@ -4,7 +4,9 @@ A Claude Code plugin that fixes GitHub issues end-to-end: investigates the codeb
 
 ## Install
 
-This repo is the plugin itself, distributed via a separate marketplace:
+**In this repo:** already wired up. `.claude/settings.json` registers this directory as a self-contained marketplace and enables the plugin at project scope — anyone who clones this repo and opens Claude Code in it gets `issue-fixer` automatically, no install step needed.
+
+**In another project**, install it from the published marketplace:
 
 ```
 /plugin marketplace add Yuzhouboat/claude-marketplace
@@ -28,6 +30,7 @@ resolve this issue: https://github.com/owner/repo/issues/42
 issue-fixer/
 ├── .claude-plugin/
 │   └── plugin.json           # plugin manifest
+├── .claude/settings.json     # registers + enables the plugin at project scope
 ├── skills/
 │   └── issue-fixer/SKILL.md  # one folder per skill
 └── .github/workflows/validate.yml
