@@ -4,12 +4,10 @@ A Claude Code plugin that fixes GitHub issues end-to-end: investigates the codeb
 
 ## Install
 
-**In this repo:** already wired up. `.claude/settings.json` registers this directory as a self-contained marketplace and enables the plugin at project scope — anyone who clones this repo and opens Claude Code in it gets `issue-fixer` automatically, no user-level install needed.
-
-**In another project**, to use this plugin from its published location:
+This repo is the plugin itself, distributed via a separate marketplace:
 
 ```
-/plugin marketplace add <owner>/issue-fixer
+/plugin marketplace add Yuzhouboat/claude-marketplace
 /plugin install issue-fixer
 ```
 
@@ -17,17 +15,11 @@ Or for local development against a checkout: `claude --plugin-dir /path/to/issue
 
 ## Usage
 
-Give Claude a GitHub issue and ask it to fix it:
+Just give Claude a GitHub issue and ask it to fix it — the `issue-fixer` skill loads automatically:
 
 ```
 fix issue #42
 resolve this issue: https://github.com/owner/repo/issues/42
-```
-
-Or invoke explicitly:
-
-```
-/issue-fixer:fix-issue https://github.com/owner/repo/issues/42
 ```
 
 ## Repo layout
@@ -35,13 +27,9 @@ Or invoke explicitly:
 ```
 issue-fixer/
 ├── .claude-plugin/
-│   ├── plugin.json           # plugin manifest
-│   └── marketplace.json      # self-referential marketplace (for project auto-load)
-├── .claude/settings.json     # registers + enables the plugin at project scope
+│   └── plugin.json           # plugin manifest
 ├── skills/
 │   └── issue-fixer/SKILL.md  # one folder per skill
-├── commands/
-│   └── fix-issue.md          # explicit slash-command entry points
 └── .github/workflows/validate.yml
 ```
 

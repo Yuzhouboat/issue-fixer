@@ -1,0 +1,13 @@
+{
+  "$schema": "https://anthropic.com/claude-code/plugin.schema.json",
+  "name": "issue-fixer",
+  "version": "0.1.0",
+  "description": "Fixes GitHub issues end-to-end: investigates, implements a fix, and opens a PR.",
+  "author": {
+    "name": "Yuzhou",
+    "email": "yuzhouboat@gmail.com"
+  },
+  "skills": [
+    "./skills"
+  ]
+}
