@@ -26,6 +26,20 @@ Or invoke explicitly:
 /issue-fixer:fix-issue https://github.com/owner/repo/issues/42
 ```
 
+## Repo layout
+
+```
+issue-fixer/
+├── .claude-plugin/plugin.json   # plugin manifest
+├── skills/
+│   └── issue-fixer/SKILL.md     # one folder per skill
+├── commands/
+│   └── fix-issue.md             # explicit slash-command entry points
+└── .github/workflows/validate.yml
+```
+
+Skills live one-per-folder under `skills/`; Claude Code auto-discovers everything there, so adding a new skill is just `skills/<name>/SKILL.md` — no manifest changes needed.
+
 ## What it does
 
 1. Fetches the issue (title, body, comments, labels) via the GitHub MCP tools.

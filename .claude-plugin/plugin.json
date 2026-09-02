@@ -7,9 +7,6 @@
     "name": "Yuzhou",
     "email": "yuzhouboat@gmail.com"
   },
-  "skills": [
-    "./"
-  ],
   "commands": [
     "./commands"
   ]
