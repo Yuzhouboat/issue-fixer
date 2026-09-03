@@ -1,0 +1,7 @@
+{
+  // Repos issue-fixer may pick candidate issues from when invoked with no
+  // issue link. Add more { "repo": ..., "labels": [...] } entries to extend
+  // this to other repos — see skills/issue-fixer/references/config.example.json
+  // for the full field reference, including how to pin a single issue instead.
+  "repos": []
+}
