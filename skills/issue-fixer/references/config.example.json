@@ -1,0 +1,25 @@
+{
+  // Pin one specific issue to fix. If set, this wins outright and "repos" below
+  // is ignored entirely — no candidate selection happens. Omit this field (or
+  // delete the whole line) to fall back to picking from "repos" instead.
+  "issue": "https://github.com/owner/repo/issues/42",
+
+  // Every repo issue-fixer is allowed to pull candidate issues from, used only
+  // when "issue" above is absent. Add or remove entries freely — candidates
+  // from all of them are pooled together and the most urgent one wins,
+  // regardless of which repo entry it came from.
+  "repos": [
+    {
+      // owner/name of the repo, same as it appears in its GitHub URL.
+      "repo": "owner/repo",
+      // Only open issues carrying at least one of these labels are considered.
+      // Delete "labels" entirely (or set it to []) to consider every open issue
+      // in this repo instead.
+      "labels": ["bug", "priority:high"]
+    },
+    {
+      "repo": "owner/other-repo",
+      "labels": ["bug"]
+    }
+  ]
+}

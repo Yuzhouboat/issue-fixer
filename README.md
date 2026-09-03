@@ -24,6 +24,19 @@ fix issue #42
 resolve this issue: https://github.com/owner/repo/issues/42
 ```
 
+If you don't name an issue, it falls back to a `.issue-fixer.json` file in the repo root:
+
+```json
+{
+  "repos": [
+    { "repo": "owner/repo", "labels": ["bug", "priority:high"] },
+    { "repo": "owner/other-repo", "labels": ["bug"] }
+  ]
+}
+```
+
+With `repos` (no `issue`), it pools open issues across every listed repo — filtered by that entry's `labels`, if given — skips anything blocked by another open issue, and picks the most urgent candidate itself, from whichever repo it came from. Set `issue` in the config instead to pin a specific one. If there's no explicit issue and no usable config file, it aborts rather than guessing.
+
 ## Repo layout
 
 ```
@@ -40,16 +53,19 @@ Skills live one-per-folder under `skills/`; Claude Code auto-discovers everythin
 
 ## What it does
 
-1. Fetches the issue (title, body, comments, labels) via the GitHub MCP tools.
-2. Locates and understands the relevant code.
-3. Reproduces the bug or confirms the request before changing anything.
-4. Implements the smallest correct fix, following the repo's conventions.
-5. Runs relevant tests/build; adds a regression test where practical.
-6. Opens a pull request referencing the issue.
+0. Verifies it has working GitHub access — the right tooling, plus read and PR-create permission on the target repo — before doing anything else.
+1. Fetches the issue (title, body, comments, labels).
+2. Confirms the issue is open and checks whether it's blocked by another open issue.
+3. Locates and understands the relevant code.
+4. Reproduces the bug or confirms the request before changing anything.
+5. Implements the smallest correct fix, following the repo's conventions.
+6. Runs relevant tests/build; adds a regression test where practical.
+7. Opens a pull request referencing the issue.
 
 ## Requirements
 
-- A GitHub MCP server connected (for issue lookup and PR creation).
+- GitHub access via one of: a connected GitHub MCP server, or the `gh` CLI installed and authenticated (`gh auth login`). Either works; the skill checks for one at the start.
+- Push/PR-create permission on the target repo (or issue-fixer will tell you it can only work from a fork).
 - A local checkout of the target repo, or the ability to clone it.
 
 ## License
