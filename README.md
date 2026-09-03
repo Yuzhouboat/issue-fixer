@@ -4,7 +4,7 @@ A Claude Code plugin that fixes GitHub issues end-to-end: investigates the codeb
 
 ## Install
 
-**In this repo:** already wired up. `.claude/settings.json` registers this directory as a self-contained marketplace and enables the plugin at project scope — anyone who clones this repo and opens Claude Code in it gets `issue-fixer` automatically, no install step needed.
+**In this repo:** already wired up. `.claude/skills` is a symlink to `../skills` — anyone who clones this repo and opens Claude Code in it gets `issue-fixer` auto-discovered at project scope, no install step needed.
 
 **In another project**, install it from the published marketplace:
 
@@ -42,14 +42,14 @@ With `repos` (no `issue`), it pools open issues across every listed repo — fil
 ```
 issue-fixer/
 ├── .claude-plugin/
-│   └── plugin.json           # plugin manifest
-├── .claude/settings.json     # registers + enables the plugin at project scope
+│   └── plugin.json           # plugin manifest, for marketplace distribution
+├── .claude/skills -> ../skills   # project-scope auto-load (symlink)
 ├── skills/
 │   └── issue-fixer/SKILL.md  # one folder per skill
 └── .github/workflows/validate.yml
 ```
 
-Skills live one-per-folder under `skills/`; Claude Code auto-discovers everything there, so adding a new skill is just `skills/<name>/SKILL.md` — no manifest changes needed.
+Skills live one-per-folder under `skills/`; Claude Code auto-discovers everything there, so adding a new skill is just `skills/<name>/SKILL.md` — no manifest changes needed. The `.claude/skills` symlink is what makes that discovery apply automatically when you're working *in this repo*; `.claude-plugin/plugin.json` is separate and only matters when installing `issue-fixer` into *other* projects via the marketplace flow above.
 
 ## What it does
 
