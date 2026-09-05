@@ -9,7 +9,7 @@ A Claude Code plugin that fixes GitHub issues end-to-end: investigates the codeb
 **In another project**, install it from the published marketplace:
 
 ```
-/plugin marketplace add Yuzhouboat/claude-marketplace
+/plugin marketplace add Yuzhouboat/yuzhou-agent-toolkit
 /plugin install issue-fixer
 ```
 
