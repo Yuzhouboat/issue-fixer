@@ -1,0 +1,24 @@
+{
+  "name": "issue-fixer",
+  "version": "0.1.0",
+  "description": "Fixes GitHub issues end-to-end: investigates, implements a fix, and opens a PR.",
+  "author": {
+    "name": "Yuzhou",
+    "url": "https://github.com/Yuzhouboat"
+  },
+  "homepage": "https://github.com/Yuzhouboat/issue-fixer",
+  "repository": "https://github.com/Yuzhouboat/issue-fixer",
+  "keywords": ["github", "issues", "pull-requests", "bugfix"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Issue Fixer",
+    "shortDescription": "Fix a GitHub issue end-to-end and open a PR.",
+    "longDescription": "Investigates a GitHub issue, implements the smallest correct fix, verifies it with the repo's tests/build, and opens a pull request referencing the issue.",
+    "developerName": "Yuzhou",
+    "category": "Developer Tools",
+    "capabilities": ["Read", "Write"],
+    "defaultPrompt": [
+      "Fix issue #<number> in this repo."
+    ]
+  }
+}

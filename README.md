@@ -15,6 +15,13 @@ A Claude Code plugin that fixes GitHub issues end-to-end: investigates the codeb
 
 Or for local development against a checkout: `claude --plugin-dir /path/to/issue-fixer`.
 
+**Codex**, via the same marketplace:
+
+```bash
+codex plugin marketplace add git@github.com:Yuzhouboat/yuzhou-agent-toolkit.git
+codex plugin add issue-fixer@yuzhou-agent-toolkit
+```
+
 ## Usage
 
 Just give Claude a GitHub issue and ask it to fix it — the `issue-fixer` skill loads automatically:
@@ -42,7 +49,9 @@ With `repos` (no `issue`), it pools open issues across every listed repo — fil
 ```
 issue-fixer/
 ├── .claude-plugin/
-│   └── plugin.json           # plugin manifest, for marketplace distribution
+│   └── plugin.json           # Claude Code plugin manifest, for marketplace distribution
+├── .codex-plugin/
+│   └── plugin.json           # Codex plugin manifest, for marketplace distribution
 ├── .claude/skills -> ../skills   # project-scope auto-load (symlink)
 ├── skills/
 │   └── issue-fixer/SKILL.md  # one folder per skill
