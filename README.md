@@ -4,7 +4,7 @@ A Claude Code plugin that fixes GitHub issues end-to-end: investigates the codeb
 
 ## Install
 
-**In this repo:** already wired up. `.claude/skills` and `.agent/skills` are both symlinks to `../skills` — anyone who clones this repo and opens Claude Code or Codex in it gets `issue-fixer` auto-discovered at project scope, no install step needed.
+**In this repo:** already wired up. `.claude/skills` and `.agents/skills` are both symlinks to `../skills` — anyone who clones this repo and opens Claude Code or Codex in it gets `issue-fixer` auto-discovered at project scope, no install step needed.
 
 **In another project**, install it from the published marketplace:
 
@@ -60,13 +60,13 @@ issue-fixer/
 ├── .codex-plugin/
 │   └── plugin.json           # Codex plugin manifest, for marketplace distribution
 ├── .claude/skills -> ../skills   # project-scope auto-load (symlink), for Claude Code
-├── .agent/skills -> ../skills    # project-scope auto-load (symlink), for Codex
+├── .agents/skills -> ../skills    # project-scope auto-load (symlink), for Codex
 ├── skills/
 │   └── issue-fixer/SKILL.md  # one folder per skill
 └── .github/workflows/validate.yml
 ```
 
-Skills live one-per-folder under `skills/`; Claude Code and Codex both auto-discover everything there, so adding a new skill is just `skills/<name>/SKILL.md` — no manifest changes needed. The `.claude/skills` and `.agent/skills` symlinks are what make that discovery apply automatically when you're working *in this repo*; the `.claude-plugin/plugin.json` and `.codex-plugin/plugin.json` manifests are separate and only matter when installing `issue-fixer` into *other* projects via the marketplace flow above.
+Skills live one-per-folder under `skills/`; Claude Code and Codex both auto-discover everything there, so adding a new skill is just `skills/<name>/SKILL.md` — no manifest changes needed. The `.claude/skills` and `.agents/skills` symlinks are what make that discovery apply automatically when you're working *in this repo*; the `.claude-plugin/plugin.json` and `.codex-plugin/plugin.json` manifests are separate and only matter when installing `issue-fixer` into *other* projects via the marketplace flow above.
 
 ## What it does
 
