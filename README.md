@@ -10,7 +10,8 @@ A Claude Code plugin that fixes GitHub issues end-to-end: investigates the codeb
 
 ```
 /plugin marketplace add Yuzhouboat/yuzhou-agent-toolkit
-/plugin install issue-fixer
+/plugin install issue-fixer -s user       # every project on this machine (default)
+/plugin install issue-fixer -s project    # this repo only, via .claude/settings.json
 ```
 
 Or for local development against a checkout: `claude --plugin-dir /path/to/issue-fixer`.
@@ -21,6 +22,12 @@ Or for local development against a checkout: `claude --plugin-dir /path/to/issue
 codex plugin marketplace add git@github.com:Yuzhouboat/yuzhou-agent-toolkit.git
 codex plugin add issue-fixer@yuzhou-agent-toolkit
 ```
+
+Codex has no project-scope install — `codex plugin add` always installs machine-wide, unlike
+Claude Code's `-s user|project`. Both install paths above were verified with a real install
+(`claude plugin install` / `codex plugin add`); see the
+[yuzhou-agent-toolkit README](https://github.com/Yuzhouboat/yuzhou-agent-toolkit#claude-code-plugin-marketplace)
+for the full verification notes.
 
 ## Usage
 
