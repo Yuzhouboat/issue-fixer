@@ -13,12 +13,12 @@
   "interface": {
     "displayName": "Issue Fixer",
     "shortDescription": "Fix a GitHub issue end-to-end and open a PR.",
-    "longDescription": "Investigates a GitHub issue, implements the smallest correct fix, verifies it with the repo's tests/build, and opens a pull request referencing the issue.",
+    "longDescription": "Takes a GitHub issue link, a repo link, or a list of either; picks one open, unblocked issue, implements the smallest correct fix, verifies it with the repo's tests/build, and opens a pull request referencing the issue.",
     "developerName": "Yuzhou",
     "category": "Developer Tools",
     "capabilities": ["Read", "Write"],
     "defaultPrompt": [
-      "Fix issue #<number> in this repo."
+      "Fix https://github.com/<owner>/<repo>/issues/<number>"
     ]
   }
 }
